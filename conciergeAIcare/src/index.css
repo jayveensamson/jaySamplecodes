@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animated underline for nav links */
+.nav-anim-link {
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-anim-link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #2563eb; /* Tailwind blue-600 */
+  transition: width 0.22s cubic-bezier(.4,0,.2,1), left 0.22s cubic-bezier(.4,0,.2,1);
+  border-radius: 1px;
+}
+.nav-anim-link:hover::after,
+.nav-anim-link:focus::after {
+  width: 80%;
+  left: 10%;
+}
